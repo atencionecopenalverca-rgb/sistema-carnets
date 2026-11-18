@@ -74,7 +74,9 @@
             document.getElementById('emp-id').innerText = empId;
             document.getElementById('emp-status').innerText = data['Estatus'] + " ✓";
             
-            document.getElementById('emp-photo').src = "foto-" + empId + ".jpg";
+            // Usamos la URL absoluta de las imágenes subidas a tu repositorio de GitHub
+            // Asumiendo que el repositorio se llama 'sistema-carnets' y que las imágenes están en la raíz
+            document.getElementById('emp-photo').src = `https://atencionecopenalverca-rgb.github.io/sistema-carnets/foto-${empId}.jpg`;
             document.getElementById('profile-card').style.display = 'block';
         } else {
             document.getElementById('error-card').style.display = 'block';
