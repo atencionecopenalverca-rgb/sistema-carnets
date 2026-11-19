@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificación de Carnet - EPS Eco Peñalver</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
         .card { background-color: white; width: 90%; max-width: 400px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden; text-align: center; padding-bottom: 30px; display: none; }
-        .header { background-color: #1b5e20; color: white; padding: 30px 10px 50px 10px; }
-        .header h2 { margin: 0; font-size: 18px; letter-spacing: 1px; font-weight: normal; }
-        .photo-container { margin-top: -60px; }
+        .header { background-color: #1b5e20; color: white; padding: 24px 15px 82px 15px; }
+        .header h2 { margin: 0; font-size: 17px; letter-spacing: 1px; font-weight: 600; line-height: 1.3; }
+        .photo-container { margin-top: -60px; position: relative; z-index: 2; }
         .photo { width: 120px; height: 120px; border-radius: 50%; border: 5px solid white; object-fit: cover; background-color: #e0e0e0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .name { font-size: 22px; font-weight: bold; color: #0a1128; margin: 15px 0 5px; padding: 0 10px; }
         .role { font-size: 16px; color: #546e7a; margin-bottom: 25px; font-weight: 500; text-transform: uppercase; }
-        .details { text-align: left; padding: 0 30px; margin-bottom: 30px; }
+        .details { text-align: left; padding: 0 30px; margin-bottom: 28px; }
         .detail-item { margin-bottom: 12px; font-size: 15px; border-bottom: 1px solid #eeeeee; padding-bottom: 8px; }
         .detail-label { font-weight: bold; color: #1b5e20; display: block; font-size: 13px; text-transform: uppercase; }
-        .detail-value { color: #333; font-size: 16px; }
+        .detail-value { color: #333; font-size: 16px; display: block; }
+        .detail-rif { color: #455a64; font-size: 13px; font-weight: 600; display: block; margin-top: 3px; }
+        .detail-alcaldia { color: #78909c; font-size: 11px; display: block; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.4px; }
         .status-active { display: inline-block; background-color: #4caf50; color: white; padding: 10px 30px; border-radius: 25px; font-weight: bold; font-size: 18px; letter-spacing: 2px; box-shadow: 0 4px 6px rgba(76, 175, 80, 0.3); }
         
         #error-card { background-color: white; width: 90%; max-width: 400px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 40px 20px; text-align: center; display: none; }
@@ -49,6 +51,8 @@
             <div class="detail-item">
                 <span class="detail-label">Empresa:</span>
                 <span class="detail-value">EPS Eco Peñalver, C.A.</span>
+                <span class="detail-rif">RIF: G-20013087-3</span>
+                <span class="detail-alcaldia">Alcaldía del Municipio Fernando Peñalver</span>
             </div>
         </div>
         
@@ -74,7 +78,6 @@
             document.getElementById('emp-id').innerText = empId;
             document.getElementById('emp-status').innerText = data['Estatus'] + " ✓";
             
-            // CORRECCIÓN AQUÍ: Cambiamos .jpg a .jpeg para que coincida exactamente con los archivos subidos.
             document.getElementById('emp-photo').src = `https://atencionecopenalverca-rgb.github.io/sistema-carnets/foto-${empId}.jpeg`;
             document.getElementById('profile-card').style.display = 'block';
         } else {
